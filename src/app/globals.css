@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
-
 body {
+	font-family: "Roboto", sans-serif;
 }
