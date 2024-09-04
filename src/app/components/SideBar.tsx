@@ -17,92 +17,84 @@ import { SiBigbluebutton } from "react-icons/si";
 import { FaRegImage } from "react-icons/fa";
 import ButtonComponent from "./ButtonComponent";
 import ImageComponent from "./ImageComponent";
-import Introduction from "./ui-component/Introduction";
+import Introduction from "./introduction/Introduction";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
 
 const SideBar = () => {
 	const menus = [
 		{
 			name: "Introduction",
-			link: "#",
 			icon: MdOutlineDashboard,
-			component: Introduction,
+			component: "introduction",
 		},
 		{
 			name: "Component",
-			link: "#",
 			icon: AiOutlineUser,
 			submenu: [
 				{
 					name: "button",
-					link: "/",
 					icon: SiBigbluebutton,
-					component: ButtonComponent,
+					component: "button",
 				},
 				{
 					name: "Image",
-					link: "/",
 					icon: FaRegImage,
-					component: ImageComponent,
+					component: "image",
 				},
 			],
 		},
 		{
 			name: "messages",
-			link: "#",
 			icon: FiMessageSquare,
 			submenu: [
 				{
 					name: "inbox",
-					link: "#",
 					icon: RiInboxArchiveLine,
-					component: ButtonComponent,
+					component: "inbox",
 				},
-				{ name: "sent", link: "#", icon: FiSend, component: ButtonComponent },
+				{ name: "sent", icon: FiSend, component: "sent" },
 				{
 					name: "drafts",
-					link: "#",
 					icon: MdOutlineDrafts,
-					component: ButtonComponent,
+					component: "drafts",
 				},
 			],
 		},
 		{
 			name: "analytics",
-			link: "#",
 			icon: TbReportAnalytics,
 			margin: true,
-			component: ButtonComponent,
+			component: "introduction",
 		},
 		{
 			name: "File Manager",
-			link: "#",
 			icon: FiFolder,
-			component: ButtonComponent,
+			component: "introduction",
 		},
 		{
 			name: "Cart",
-			link: "#",
 			icon: FiShoppingCart,
-			component: ButtonComponent,
+			component: "introduction",
 		},
 		{
 			name: "Saved",
-			link: "#",
 			icon: AiOutlineHeart,
 			margin: true,
-			component: ButtonComponent,
+			component: "introduction",
 		},
 		{
 			name: "Setting",
-			link: "#",
 			icon: RiSettings4Line,
-			component: ButtonComponent,
+			component: "introduction",
 		},
 	];
 
 	const [open, setOpen] = useState(true);
 	const [openSubmenu, setOpenSubmenu] = useState(null);
-	const [activeComponent, setActiveComponent] = useState(Introduction);
+	const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
+		<Introduction />
+	);
 
 	const toggleMainMenu = () => {
 		setOpen(!open);
@@ -113,12 +105,18 @@ const SideBar = () => {
 		setOpenSubmenu((prev) => (prev === index ? null : index));
 	};
 
-	const handleMenuClick = (component: any) => {
-		setActiveComponent(component?.component?.name || null);
+	const handleMenuClick = (menu: string) => {
+		if (menu === "introduction") {
+			setActiveComponent(<Introduction />);
+		} else if (menu === "button") {
+			setActiveComponent(<ButtonComponent />);
+		} else {
+			setActiveComponent(<Introduction />);
+		}
 	};
 
 	return (
-		<section className="w-full flex gap-6">
+		<section className="w-full flex">
 			<div
 				className={`bg-[#0e0e0e] min-h-screen ${
 					open ? "w-72" : "w-16 "
@@ -139,7 +137,7 @@ const SideBar = () => {
 					{menus.map((menu, i) => (
 						<div key={i}>
 							<Link
-								href={menu.link}
+								href="#"
 								onClick={(e) => {
 									if (menu.submenu && open) {
 										e.preventDefault();
@@ -150,7 +148,9 @@ const SideBar = () => {
 										toggleSubmenu(i);
 									} else {
 										setOpenSubmenu(null);
-										handleMenuClick(menu);
+										if (menu?.component) {
+											handleMenuClick(menu?.component);
+										}
 									}
 								}}
 								className={` ${
@@ -194,12 +194,12 @@ const SideBar = () => {
 								>
 									{menu.submenu.map((subItem, subIndex) => (
 										<Link
-											href={subItem.link}
+											href="#"
 											key={subIndex}
 											className="flex items-center text-sm gap-3 py-1 px-3 hover:bg-gray-700 rounded-md"
 											onClick={(e) => {
 												e.preventDefault();
-												handleMenuClick(subItem);
+												handleMenuClick(subItem.component);
 											}}
 										>
 											<div>
@@ -216,7 +216,12 @@ const SideBar = () => {
 					))}
 				</div>
 			</div>
-			<div className=" relative m-3 text-gray-800 z-50">{activeComponent}</div>
+			<div className="w-full relative z-50">
+				<div className="m-4 text-gray-800">
+					<Header />
+					{activeComponent}
+				</div>
+			</div>
 		</section>
 	);
 };
