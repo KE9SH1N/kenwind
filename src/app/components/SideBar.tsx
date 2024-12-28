@@ -17,14 +17,15 @@ import { SiBigbluebutton } from "react-icons/si";
 import { FaRegImage } from "react-icons/fa";
 import ButtonComponent from "./buttons/ButtonComponent";
 import Introduction from "./introduction/Introduction";
-import Header from "./header/Header";
 
-const SideBar = () => {
+const SideBar = ({ toggleSidebar }: any) => {
 	const menus = [
 		{
 			name: "Introduction",
 			icon: MdOutlineDashboard,
-			component: "introduction",
+			path: "/introduction",
+			label: "Introduction",
+			visible: "",
 		},
 		{
 			name: "Component",
@@ -33,7 +34,8 @@ const SideBar = () => {
 				{
 					name: "button",
 					icon: SiBigbluebutton,
-					component: "button",
+					path: "/buttons",
+					label: "Button",
 				},
 				{
 					name: "Image",
@@ -48,6 +50,7 @@ const SideBar = () => {
 			submenu: [
 				{
 					name: "inbox",
+					path: "/",
 					icon: RiInboxArchiveLine,
 					component: "inbox",
 				},
@@ -90,27 +93,15 @@ const SideBar = () => {
 
 	const [open, setOpen] = useState(true);
 	const [openSubmenu, setOpenSubmenu] = useState(null);
-	const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
-		<Introduction />
-	);
 
 	const toggleMainMenu = () => {
 		setOpen(!open);
 		setOpenSubmenu(null);
+		toggleSidebar();
 	};
 
 	const toggleSubmenu = (index: any) => {
 		setOpenSubmenu((prev) => (prev === index ? null : index));
-	};
-
-	const handleMenuClick = (menu: string) => {
-		if (menu === "introduction") {
-			setActiveComponent(<Introduction />);
-		} else if (menu === "button") {
-			setActiveComponent(<ButtonComponent />);
-		} else {
-			setActiveComponent(<Introduction />);
-		}
 	};
 
 	return (
@@ -135,7 +126,7 @@ const SideBar = () => {
 					{menus.map((menu, i) => (
 						<div key={i}>
 							<Link
-								href="#"
+								href={menu.path || "#"}
 								onClick={(e) => {
 									if (menu.submenu && open) {
 										e.preventDefault();
@@ -146,9 +137,6 @@ const SideBar = () => {
 										toggleSubmenu(i);
 									} else {
 										setOpenSubmenu(null);
-										if (menu?.component) {
-											handleMenuClick(menu?.component);
-										}
 									}
 								}}
 								className={`relative ${
@@ -193,13 +181,9 @@ const SideBar = () => {
 								>
 									{menu.submenu.map((subItem, subIndex) => (
 										<Link
-											href="#"
+											href={subItem.path || "#"}
 											key={subIndex}
 											className="flex items-center text-sm gap-3 py-1 px-3 hover:bg-gray-700 rounded-md"
-											onClick={(e) => {
-												e.preventDefault();
-												handleMenuClick(subItem.component);
-											}}
 										>
 											<div>
 												{React.createElement(subItem.icon, { size: "16" })}
@@ -213,12 +197,6 @@ const SideBar = () => {
 							)}
 						</div>
 					))}
-				</div>
-			</div>
-			<div className="w-full relative z-50">
-				<div className="m-4 text-gray-800">
-					<Header />
-					{activeComponent}
 				</div>
 			</div>
 		</section>
