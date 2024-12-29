@@ -1,8 +1,8 @@
 import React from "react";
 
-const Header = () => {
+const CustomHeader = () => {
 	return (
-		<div className="mb-12">
+		<div className="my-1">
 			<h1>
 				<span className="text-2xl py-1 px-5 rounded bg-emerald-500">
 					Kenwind UI
@@ -13,4 +13,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default CustomHeader;

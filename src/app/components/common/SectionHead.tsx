@@ -1,13 +1,13 @@
 import React from "react";
 
-interface SectionHeadProps {
-	title: string;
+interface SectionHeadingProps {
+	headingText?: string | React.ReactNode;
 }
 
-const SectionHead: React.FC<SectionHeadProps> = ({ title }) => {
+const SectionHead: React.FC<SectionHeadingProps> = ({ headingText }) => {
 	return (
-		<div className="text-start mb-8">
-			<h2 className="text-yellow-800 text-3xl font-bold">{title}</h2>
+		<div className="my-3">
+			<h2 className=" text-xl font-semibold  uppercase">{headingText}</h2>
 		</div>
 	);
 };

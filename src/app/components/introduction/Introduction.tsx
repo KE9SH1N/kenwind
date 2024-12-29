@@ -8,7 +8,7 @@ const Introduction = () => {
 				<p className="capitalize text-lg my-3">
 					this UI is not for beginners !
 				</p>
-				<h3 className=" text-black font-semibold my-3">Who is this UI for ?</h3>
+				<h3 className=" text-black font-semibold my-2">Who is this UI for ?</h3>
 				<ol className="grid grid-cols-3 gap-x-4 z-0">
 					<li className="p-4 bg-gray-100 rounded-md">
 						<span className="block text-black font-medium text-lg mb-2">

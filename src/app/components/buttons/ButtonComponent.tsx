@@ -13,7 +13,7 @@ const ButtonComponent = () => {
 	return (
 		<div className="w-full">
 			<div>
-				<SectionHead title="Add to Cart Buttons" />
+				<SectionHead headingText="Add to Cart Buttons" />
 			</div>
 			<div className=" grid grid-cols-4 gap-5">
 				<AddToCart />

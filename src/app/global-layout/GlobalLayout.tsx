@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideBar from "../components/SideBar";
+import NavTop from "../components/header/NavTop";
 
 export default function GlobalLayout({
 	children,
@@ -47,11 +48,11 @@ export default function GlobalLayout({
 				} smooth-animation-mid-linear`}
 			>
 				<div
-					className={`fixed top-0 left-0 right-0 h-16 bg-white z-40 shadow smooth-animation-mid-linear ${
+					className={`fixed top-0 left-0 right-0 bg-white z-40 shadow smooth-animation-mid-linear ${
 						isSidebarCollapsed ? "ml-16" : "ml-60"
 					}`}
 				>
-					{/* <NavTop /> */}
+					<NavTop />
 				</div>
 				{/* <div><PopUpToast /></div> */}
 				<div className="pt-16 p-4">{children}</div>

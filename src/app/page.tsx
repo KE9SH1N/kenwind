@@ -1,13 +1,16 @@
-import SideBar from "./components/SideBar";
+import Introduction from "./components/introduction/Introduction";
+import VersionInfo from "./components/introduction/VersionInfo";
 import GlobalLayout from "./global-layout/GlobalLayout";
 
 export default function Home() {
 	return (
 		<main>
 			<GlobalLayout>
-				<p>Hello World!</p>
+				<div>
+					<Introduction />
+					{/* <VersionInfo /> */}
+				</div>
 			</GlobalLayout>
-			<p>hlo</p>
 		</main>
 	);
 }

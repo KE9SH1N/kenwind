@@ -2,7 +2,7 @@ import React from "react";
 
 const VersionInfo = () => {
 	return (
-		<div className=" my-6">
+		<div className=" my-3">
 			<p>Kenwind UI - Version 1.0</p>
 			<p>Release Date: [Insert Date]</p>
 			<div className="my-6">
