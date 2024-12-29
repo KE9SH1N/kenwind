@@ -16,7 +16,7 @@ const VersionInfo = () => {
 						creating consistent and user-friendly designs.
 					</span>
 				</p>
-				<p className="my-6">
+				<div className="my-6">
 					<span>Features:</span>
 					<ul>
 						<li>
@@ -71,7 +71,7 @@ const VersionInfo = () => {
 						</p>
 						<p className="text-sm">Designed with passion by [kensh1n]</p>
 					</div>
-				</p>
+				</div>
 			</div>
 		</div>
 	);
