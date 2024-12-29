@@ -15,18 +15,17 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import Link from "next/link";
 import { SiBigbluebutton } from "react-icons/si";
 import { FaRegImage } from "react-icons/fa";
-import ButtonComponent from "./ButtonComponent";
-import ImageComponent from "./ImageComponent";
+import ButtonComponent from "./buttons/ButtonComponent";
 import Introduction from "./introduction/Introduction";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
 
-const SideBar = () => {
+const SideBar = ({ toggleSidebar }: any) => {
 	const menus = [
 		{
 			name: "Introduction",
 			icon: MdOutlineDashboard,
-			component: "introduction",
+			path: "/introduction",
+			label: "Introduction",
+			visible: "",
 		},
 		{
 			name: "Component",
@@ -35,7 +34,8 @@ const SideBar = () => {
 				{
 					name: "button",
 					icon: SiBigbluebutton,
-					component: "button",
+					path: "/buttons",
+					label: "Button",
 				},
 				{
 					name: "Image",
@@ -50,6 +50,7 @@ const SideBar = () => {
 			submenu: [
 				{
 					name: "inbox",
+					path: "/",
 					icon: RiInboxArchiveLine,
 					component: "inbox",
 				},
@@ -92,27 +93,15 @@ const SideBar = () => {
 
 	const [open, setOpen] = useState(true);
 	const [openSubmenu, setOpenSubmenu] = useState(null);
-	const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
-		<Introduction />
-	);
 
 	const toggleMainMenu = () => {
 		setOpen(!open);
 		setOpenSubmenu(null);
+		toggleSidebar();
 	};
 
 	const toggleSubmenu = (index: any) => {
 		setOpenSubmenu((prev) => (prev === index ? null : index));
-	};
-
-	const handleMenuClick = (menu: string) => {
-		if (menu === "introduction") {
-			setActiveComponent(<Introduction />);
-		} else if (menu === "button") {
-			setActiveComponent(<ButtonComponent />);
-		} else {
-			setActiveComponent(<Introduction />);
-		}
 	};
 
 	return (
@@ -137,7 +126,7 @@ const SideBar = () => {
 					{menus.map((menu, i) => (
 						<div key={i}>
 							<Link
-								href="#"
+								href={menu.path || "#"}
 								onClick={(e) => {
 									if (menu.submenu && open) {
 										e.preventDefault();
@@ -148,12 +137,9 @@ const SideBar = () => {
 										toggleSubmenu(i);
 									} else {
 										setOpenSubmenu(null);
-										if (menu?.component) {
-											handleMenuClick(menu?.component);
-										}
 									}
 								}}
-								className={` ${
+								className={`relative ${
 									menu.margin && "mt-5"
 								} group flex items-center text-sm gap-3.5 font-medium py-2 px-[22px] hover:bg-gray-800 rounded-md`}
 							>
@@ -178,9 +164,10 @@ const SideBar = () => {
 									/>
 								)}
 								<h2
+									style={{ zIndex: 9999 }}
 									className={`${
 										open && "hidden"
-									} capitalize absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-2 py-1 w-fit opacity-0 pointer-events-none overflow-hidden group-hover:opacity-100 group-hover:pointer-events-auto group-hover:px-2 group-hover:py-1 group-hover:left-16 group-hover:duration-700 group-hover:w-fit  `}
+									} capitalize absolute left-48 bg-white font-light whitespace-pre text-yellow-800 rounded-md drop-shadow-lg px-3 py-2 w-fit opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:px-3 group-hover:py-2 group-hover:left-16 group-hover:duration-700 group-hover:w-fit z-50`}
 								>
 									{menu?.name}
 								</h2>
@@ -194,13 +181,9 @@ const SideBar = () => {
 								>
 									{menu.submenu.map((subItem, subIndex) => (
 										<Link
-											href="#"
+											href={subItem.path || "#"}
 											key={subIndex}
 											className="flex items-center text-sm gap-3 py-1 px-3 hover:bg-gray-700 rounded-md"
-											onClick={(e) => {
-												e.preventDefault();
-												handleMenuClick(subItem.component);
-											}}
 										>
 											<div>
 												{React.createElement(subItem.icon, { size: "16" })}
@@ -214,12 +197,6 @@ const SideBar = () => {
 							)}
 						</div>
 					))}
-				</div>
-			</div>
-			<div className="w-full relative z-50">
-				<div className="m-4 text-gray-800">
-					<Header />
-					{activeComponent}
 				</div>
 			</div>
 		</section>
