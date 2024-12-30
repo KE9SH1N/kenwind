@@ -14,10 +14,10 @@ const CodeSnipetModal: React.FC<CodeSnipetModalProps> = ({
 	componentCode,
 }) => {
 	return (
-		<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+		<div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
 			<div className="bg-white rounded-lg shadow-lg max-w-3xl p-1">
 				<div className="ct-flex-between py-3 rounded px-2 bg-gray-200">
-					<h2 className="text-xl font-medium ">Code</h2>
+					<h2 className="text-xl font-semibold text-yellow-950 ">Code</h2>
 					<div className="ct-flex-center gap-x-3">
 						<button className="p-1 rounded bg-slate-400">
 							<IoMdCopy className="text-xl text-gray-800" />
