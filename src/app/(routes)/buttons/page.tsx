@@ -4,7 +4,6 @@ import ButtonRightWaveCard from "@/app/components/buttons/common/ButtonRightWave
 import GlobalLayout from "@/app/global-layout/GlobalLayout";
 import React from "react";
 import ButtonLeftWaveCard from "@/app/components/buttons/common/ButtonLeftWaveCard";
-import ButtonComponent from "@/app/components/buttons/ButtonComponent";
 import ButtonBorderBoxCard from "@/app/components/buttons/common/ButtonBorderBoxCard";
 import ButtonBorderBoxReverseCard from "@/app/components/buttons/common/ButtonBorderBoxReverseCard";
 import ButtonAddToCartCard from "@/app/components/buttons/common/ButtonAddToCartCard";
@@ -23,7 +22,6 @@ const page = () => {
 				<ButtonAddToCartCard />
 				<ButtonAddToCartUpSideDownCard />
 			</div>
-			{/* <ButtonComponent /> */}
 		</GlobalLayout>
 	);
 };

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import SideBar from "../components/SideBar";
-import NavTop from "../components/header/NavTop";
+import SideBar from "../global-component/sidebar/SideBar";
+import NavTop from "../global-component/header/NavTop";
 
 export default function GlobalLayout({
 	children,

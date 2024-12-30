@@ -1,4 +1,4 @@
-import Introduction from "@/app/components/introduction/Introduction";
+import Introduction from "@/app/global-component/introduction/Introduction";
 import GlobalLayout from "@/app/global-layout/GlobalLayout";
 import React from "react";
 

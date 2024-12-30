@@ -14,9 +14,7 @@ import { RiInboxArchiveLine, RiSettings4Line } from "react-icons/ri";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Link from "next/link";
 import { SiBigbluebutton } from "react-icons/si";
-import { FaRegImage } from "react-icons/fa";
-import ButtonComponent from "./buttons/ButtonComponent";
-import Introduction from "./introduction/Introduction";
+import { FaRegIdCard, FaRegImage } from "react-icons/fa";
 
 const SideBar = ({ toggleSidebar }: any) => {
 	const menus = [
@@ -38,9 +36,10 @@ const SideBar = ({ toggleSidebar }: any) => {
 					label: "Button",
 				},
 				{
-					name: "Image",
-					icon: FaRegImage,
-					component: "image",
+					name: "Card",
+					icon: FaRegIdCard,
+					path: "/card",
+					label: "Card",
 				},
 			],
 		},

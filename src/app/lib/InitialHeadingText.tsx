@@ -1,4 +1,4 @@
-import CustomHeaders from "../components/header/CustomHeader";
+import CustomHeaders from "../global-component/header/CustomHeader";
 export const getInitialHeadingText = (
 	pathName: string | null | React.ReactNode
 ) => {
@@ -9,8 +9,8 @@ export const getInitialHeadingText = (
 			return "Introduction";
 		case "/buttons":
 			return "Buttons";
-		case "/files":
-			return "File List";
+		case "/card":
+			return "Card";
 		case "/dcm":
 			return "Data Call Manager";
 		case "/users":

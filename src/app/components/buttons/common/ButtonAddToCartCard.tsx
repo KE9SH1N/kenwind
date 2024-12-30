@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import CodeSnipetModal from "../../modals/CodeSnipetModal";
 import CodeSnipetComp from "../../common/CodeSnipetComp";
-import BorderBox from "../button/BorderBox";
 import AddToCart from "../button/AddToCart";
 
 const ButtonAddToCartCard = () => {
