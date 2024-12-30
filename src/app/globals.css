@@ -96,3 +96,8 @@ body {
 		@apply transition-all duration-1000 ease-linear;
 	}
 }
+
+input[type="text"]:focus ~ .input-text,
+input[type="text"]:not(:placeholder-shown) ~ .input-text {
+	@apply text-black transform -translate-y-6 -translate-x-2 scale-90;
+}

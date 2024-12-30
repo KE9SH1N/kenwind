@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { MdOutlineDashboard, MdOutlineDrafts } from "react-icons/md";
+import { MdInput, MdOutlineDashboard, MdOutlineDrafts } from "react-icons/md";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import {
 	FiMessageSquare,
@@ -40,6 +40,12 @@ const SideBar = ({ toggleSidebar }: any) => {
 					icon: FaRegIdCard,
 					path: "/card",
 					label: "Card",
+				},
+				{
+					name: "input",
+					icon: MdInput,
+					path: "/input",
+					label: "Input",
 				},
 			],
 		},

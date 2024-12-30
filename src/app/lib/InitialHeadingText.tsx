@@ -11,8 +11,8 @@ export const getInitialHeadingText = (
 			return "Buttons";
 		case "/card":
 			return "Card";
-		case "/dcm":
-			return "Data Call Manager";
+		case "/input":
+			return "Input";
 		case "/users":
 			return "Users";
 		default:
