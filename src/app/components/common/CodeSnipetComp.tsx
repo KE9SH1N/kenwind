@@ -14,7 +14,7 @@ const CodeSnipetComp: React.FC<CodeSnipetProps> = ({
 	children,
 }) => {
 	return (
-		<div className="max-w-xs p-2 bg-gray-100 rounded-lg shadow-lg">
+		<div className="max-w-xs p-2 bg-white rounded-lg shadow-lg">
 			<div>
 				{isOpen ? (
 					<div className="flex items-end justify-end gap-x-4 border-b py-2">
