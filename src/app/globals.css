@@ -97,7 +97,8 @@ body {
 	}
 }
 
+/* label animation input custom css  */
 input[type="text"]:focus ~ .input-text,
 input[type="text"]:not(:placeholder-shown) ~ .input-text {
-	@apply text-black transform -translate-y-6 -translate-x-2 scale-90;
+	@apply text-black transform -translate-y-[22px] -translate-x-2 scale-90;
 }
