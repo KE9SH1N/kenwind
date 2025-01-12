@@ -8,6 +8,9 @@ import ButtonBorderBoxCard from "@/app/components/buttons/common/ButtonBorderBox
 import ButtonBorderBoxReverseCard from "@/app/components/buttons/common/ButtonBorderBoxReverseCard";
 import ButtonAddToCartCard from "@/app/components/buttons/common/ButtonAddToCartCard";
 import ButtonAddToCartUpSideDownCard from "@/app/components/buttons/common/ButtonAddToCartUpSideDownCard";
+import ButtonElevated from "@/app/components/buttons/common/ButtonElevated";
+import ButtonCallToAction from "@/app/components/buttons/common/ButtonCallToAction";
+import ButtonBorderBottom from "@/app/components/buttons/common/ButtonBorderBottom";
 
 const page = () => {
 	return (
@@ -21,6 +24,9 @@ const page = () => {
 				<ButtonBorderBoxReverseCard />
 				<ButtonAddToCartCard />
 				<ButtonAddToCartUpSideDownCard />
+				<ButtonElevated />
+				<ButtonCallToAction />
+				<ButtonBorderBottom />
 			</div>
 		</GlobalLayout>
 	);
