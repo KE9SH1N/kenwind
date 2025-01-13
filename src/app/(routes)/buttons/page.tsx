@@ -11,6 +11,7 @@ import ButtonAddToCartUpSideDownCard from "@/app/components/buttons/common/Butto
 import ButtonElevated from "@/app/components/buttons/common/ButtonElevated";
 import ButtonCallToAction from "@/app/components/buttons/common/ButtonCallToAction";
 import ButtonBorderBottom from "@/app/components/buttons/common/ButtonBorderBottom";
+import ButtonAnimatedHoverCard from "@/app/components/buttons/common/ButtonAnimatedHoverCard";
 
 const page = () => {
 	return (
@@ -27,6 +28,7 @@ const page = () => {
 				<ButtonElevated />
 				<ButtonCallToAction />
 				<ButtonBorderBottom />
+				<ButtonAnimatedHoverCard />
 			</div>
 		</GlobalLayout>
 	);
