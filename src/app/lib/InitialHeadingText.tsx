@@ -13,8 +13,8 @@ export const getInitialHeadingText = (
 			return "Card";
 		case "/input":
 			return "Input";
-		case "/users":
-			return "Users";
+		case "/notifications":
+			return "Notifications";
 		default:
 			return "Loading...";
 	}

@@ -35,7 +35,7 @@ export default function GlobalLayout({
 	return (
 		<div className=" h-screen flex relative">
 			<div
-				className={`fixed top-0 left-0 h-full smooth-animation-mid-linear z-50 ${
+				className={`fixed top-0 left-0 h-full smooth-animation-mid z-50 ${
 					isSidebarCollapsed ? "w-16" : "w-60"
 				}`}
 			>
@@ -45,10 +45,10 @@ export default function GlobalLayout({
 			<div
 				className={`flex-1 ${
 					isSidebarCollapsed ? "ml-16" : "ml-60"
-				} smooth-animation-mid-linear`}
+				} smooth-animation-mid`}
 			>
 				<div
-					className={`fixed top-0 left-0 right-0 bg-white z-40 shadow smooth-animation-mid-linear ${
+					className={`fixed top-0 left-0 right-0 bg-white z-40 shadow smooth-animation-mid ${
 						isSidebarCollapsed ? "ml-16" : "ml-60"
 					}`}
 				>

@@ -15,6 +15,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import Link from "next/link";
 import { SiBigbluebutton } from "react-icons/si";
 import { FaRegIdCard, FaRegImage } from "react-icons/fa";
+import { HiOutlineBellAlert } from "react-icons/hi2";
 
 const SideBar = ({ toggleSidebar }: any) => {
 	const menus = [
@@ -38,14 +39,20 @@ const SideBar = ({ toggleSidebar }: any) => {
 				{
 					name: "Card",
 					icon: FaRegIdCard,
-					path: "/card",
+					path: "/cards",
 					label: "Card",
 				},
 				{
 					name: "input",
 					icon: MdInput,
-					path: "/input",
+					path: "/inputs",
 					label: "Input",
+				},
+				{
+					name: "notification",
+					icon: HiOutlineBellAlert,
+					path: "/notifications",
+					label: "Notification",
 				},
 			],
 		},
