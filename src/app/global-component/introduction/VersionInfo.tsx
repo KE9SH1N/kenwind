@@ -37,7 +37,7 @@ const VersionInfo = () => {
 							<span>Customization: </span>
 							<span>
 								Provides a range of customization options to tailor the look and
-								feel of components to fit your project's needs.
+								feel of components to fit your project&apos;s needs.
 							</span>
 						</li>
 						<li>
