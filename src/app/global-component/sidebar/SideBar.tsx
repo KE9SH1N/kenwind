@@ -39,13 +39,13 @@ const SideBar = ({ toggleSidebar }: any) => {
 				{
 					name: "Card",
 					icon: FaRegIdCard,
-					path: "/cards",
+					path: "/card",
 					label: "Card",
 				},
 				{
 					name: "input",
 					icon: MdInput,
-					path: "/inputs",
+					path: "/input",
 					label: "Input",
 				},
 				{
